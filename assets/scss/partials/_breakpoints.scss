@@ -1,0 +1,14 @@
+@mixin breakpoint($point){
+    @if $point == extralargedesktop{
+        @media screen and (max-width: 1400px){ @content; }
+    }
+    @else if $point == largedesktop{
+        @media screen and (max-width: 1200px){ @content; }
+    }
+    @else if $point == tablet{
+        @media screen and (max-width: 991px){ @content; }
+    }
+    @else if $point == mobile{
+        @media screen and (max-width: 768px){ @content; }
+    }
+}

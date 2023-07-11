@@ -1,0 +1,25 @@
+.center{
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+}
+
+.text-center{
+    text-align: center;
+}
+
+.text-left{
+    text-align: left;
+}
+
+.text-right{
+    text-align: right;
+}
+
+figure{
+    img{
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+}

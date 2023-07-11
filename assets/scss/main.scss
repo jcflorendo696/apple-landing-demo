@@ -1,0 +1,264 @@
+@import './partials/_reset';
+@import './partials/_mixins';
+@import '_variables';
+@import './partials/_headings';
+@import './partials/_helpers';
+@import './partials/_buttons';
+@import './partials/_breakpoints';
+
+body{
+    font-family: 'Open Sans', sans-serif;
+}
+
+.container{
+    max-width: 1260px;
+    display: block;
+    margin: 0 auto;
+    @include breakpoint(largedesktop){
+        margin: 0 20px;
+        width: auto;
+    }
+}
+
+.hero-banner{
+    @include flexbox;
+    @include justify-content(center);
+    @include align-items(center);
+    min-height: 100vh;
+    color: $white;
+    background-image: url('../assets/images/macbook-hero.jpg');
+    background-position-x: 486px;
+    background-repeat: no-repeat;
+    background-color: $black;
+    background-size: cover;
+    .container{
+        width: 100%;
+        margin: 0 20px;
+    }
+    h1{
+        margin: 0;
+    }
+    h3{
+        margin-bottom: 1em;
+    }
+    h1, h3{
+        font-weight: 300;
+    }
+    .learn-more{
+        font-size: 1.5em;
+    }
+    @include breakpoint(tablet){
+        background-position: center;
+        background-position-x: -500px;
+    }
+    @include breakpoint(mobile){
+        font-size: 0.5em;
+    }
+}
+
+.product-details{
+    margin: 150px 0;
+    @include breakpoint(extralargedesktop){
+        margin: 80px 0;
+    }
+    .heading{
+        margin-bottom: 50px;
+        @include breakpoint(mobile){
+            margin-bottom: 30px;
+        }
+        h1{
+            font-weight: 300;
+            color: $footer-text;
+            margin-bottom: 0;
+            @include breakpoint(mobile){
+                font-size: 2em;
+            }
+        }
+        h3{
+            color: $footer-text;
+            font-weight: 400;
+            @include breakpoint(mobile){
+                font-size: 1em;
+            }
+        }
+    }
+    .three-col{
+        @include flexbox;
+        @include flexwrap(wrap);
+    }
+    .item{
+        width: calc(33.33% - 20px);
+        margin-right: 25px;
+        margin-bottom: 25px;
+        &:nth-child(3n+3){
+            margin-right: 0;
+        }
+        @include breakpoint(extralargedesktop){
+            width: calc(50% - 13px);
+            &:nth-child(2n+2){
+                margin-right: 0;
+            }
+            &:nth-child(3n+3){
+                margin-right: 25px;
+            }
+        }
+        @include breakpoint(mobile){
+            width: 100%;
+            margin-right: 0;
+            &:nth-child(3n+3){
+                margin-right: 0;
+            }
+        }
+        h3{
+            font-weight: 400;
+            margin-bottom: 10px;
+            @include breakpoint(mobile){
+                font-size: 1.2em;
+                margin-bottom: 4px;
+            }
+        }
+        p{
+            font-size: 0.9em;
+            margin-bottom: 10px;
+            @include breakpoint(mobile){
+                font-size: 12px;
+            }
+        }
+
+    }
+    figure{
+        width: 400px;
+        height: 200px;
+        @include breakpoint(extralargedesktop){
+            width: auto;
+        }
+        @include breakpoint(mobile){
+            width: auto;
+        }
+    }
+}
+
+.testimonials{
+    margin: 150px 0;
+    margin-bottom: 0;
+    @include breakpoint(tablet){
+        margin-top: 20px;
+    }
+}
+
+.owl-carousel{
+    .owl-item .item{
+        position: relative;
+    }
+    .overlay{
+        background-color: $black-overlay;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
+    .content{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        color: $white;
+        @include breakpoint(tablet){
+            display: none;
+        }
+    }
+    h3{
+        font-style: italic;
+        margin-bottom: 1.6em;
+        line-height: 30px;
+    }
+    h5{
+        font-size: 1.2em;
+        margin-bottom: 6px;
+    }
+    h6{
+        margin-top: 0;
+    }
+    img{
+        max-height: 400px;
+        object-fit: cover;
+        object-position: center;
+        filter: grayscale(100%);
+        @include breakpoint(tablet){
+            max-height: 65px;
+        }
+    }
+}
+
+footer{
+    background-color: $footer-bg;
+    padding: 20px 0;
+    .container{
+        @include flexbox;
+        .col{
+            width: calc(25%);
+            margin-right: 20px;
+            &:nth-child(4n+4){
+                margin-right: 0;
+            }
+            @include breakpoint(mobile){
+                width: 100%;
+            }
+        }
+        @include breakpoint(mobile){
+            @include flex-direction(column);
+        }
+    }
+    h5{
+        margin-bottom: 30px;
+        color: $footer-heading;
+        @include breakpoint(mobile){
+            font-size: 1em;
+            margin-bottom: 10px;
+        }
+    }
+    h6{
+        color: $footer-text;
+    }
+    ul{
+        li{
+            a:link{
+                color: $footer-text;
+                font-size: 0.8em;
+                @include breakpoint(mobile){
+                    font-size: 0.8em;
+                }
+            }
+            margin-bottom: 16px;
+            @include breakpoint(mobile){
+                margin-bottom: 15px;
+            }
+        }
+    }
+}
+
+.copyright{
+    font-size: 0.8em;
+    margin-top: 50px;
+}
+
+a{
+    &:link{
+        color: $black;
+        text-decoration: none;
+    }
+    &:visited{
+        color: $black;
+    }
+    &:hover{
+        text-decoration: underline;
+    }
+    &.learn-more{
+        color: $link;
+        font-size: 0.9em;
+        @include breakpoint(mobile){
+            font-size: 0.8em;
+        }
+    }
+}

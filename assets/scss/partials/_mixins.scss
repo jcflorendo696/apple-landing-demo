@@ -1,0 +1,19 @@
+@mixin flexbox {
+    display: flex;
+}
+
+@mixin flexwrap($property){
+    flex-wrap: $property;
+}
+
+@mixin flex-direction($property){
+    flex-direction: $property;
+}
+
+@mixin justify-content($property){
+    justify-content: $property;
+}
+
+@mixin align-items($property){
+    align-items: $property;
+}
